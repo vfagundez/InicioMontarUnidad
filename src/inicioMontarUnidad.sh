@@ -43,7 +43,7 @@ function inicioMontarUnidad() {
     echo "Montando unidad de disco"
     checkFolder # Comprobamos si existe el directorio de montaje
     #montamos el disco duro en la carpeta que hemos creado
-    sudo mount -t ntfs "$DISK_TO_MOUNT" "$DIR_TO_MOUNT_DISK"
+    mount -t ntfs "$DISK_TO_MOUNT" "$DIR_TO_MOUNT_DISK"
 }
 #redirigimos la salida estándar y la de error a un fichero de log
 inicioMontarUnidad 1>"$DIR/../logs/output.log" 2>"$DIR/../logs/errors.log"

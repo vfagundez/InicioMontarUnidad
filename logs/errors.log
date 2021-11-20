@@ -1,0 +1,3 @@
+Mount is denied because the NTFS volume is already exclusively opened.
+The volume may be already mounted, or another software may use it which
+could be identified for example by the help of the 'fuser' command.
