@@ -71,13 +71,50 @@ sudo ./inicioMontarUnidad.sh
 ## Funcionamiento Automático ⚙️
 
 Si queremos que este script se ejecute al inicio debemos seguir los siguientes
-pasos
+pasos:
 
-_En desarrollo_
+Usaremos la herramienta _crontab_ disponible con la mayoria de distribuciones 
+linux que nos permite acceder al _cron_. _crontab_ nos permite planificar la 
+ejecución de script dentro de nuestro sistema.
 
-## Wiki 📖
+Abrir _crontab_ es sencillo. Para empezar, abre una terminal e ingresa el 
+siguiente comando:
 
-Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](https://github.com/tu/proyecto/wiki)
+```
+sudo crontab -e
+```
+
+**Nota**: Es importante usar el comando <kbd>crontab -e</kbd> precedido de 
+<kbd>sudo</kbd> si queremos usar el comando como usuario **root**. Que en 
+nuestro caso lo necesitamos para montar la unidad y crear la carpeta si no esta 
+creada.
+
+Si es la primera vez que usamos crontab, necesitaremos especificar un editor 
+con el que trabajar el fichero. En este ejemplo escogeremos el editor _nano_
+dado que no presenta demasiada complejidad. 
+
+Con el editor seleccionado, _cron_ cargará el fichero por defecto con
+instrucciones detalladas sobre como funciona todo.
+
+Dentro del fichero en editor _nano_, hacemos scroll hasta bajar al final del 
+archivo donde escribiremos la ruta a nuestro archivo precedido de 
+<kbd>@reboot</kbd> como en el ejemplo siguiente:
+
+```
+@reboot /home/vincitori/Documentos/InicioMontarUnidad/src/inicioMontarUnidad.sh
+```
+El comando <kbd>@reboot</kbd> es clave dado que indica al cron que ejecute este
+script cada vez que se reinicie.
+
+Ahora que el comando está establecido, el _crontab_ debe ser guardado. Para 
+ello pulsamos la combinación de teclas <kbd>Ctrl + o</kbd> en el teclado. Esto
+mostrará un mensaje solicitando el nombre con el que guardar el archivo. **No
+cambies nada**, simplemente pulsa la tecla <kbd>Enter</kbd> para guardarlo con
+el nombre por defecto.
+
+Para salir de nano pulsa las teclas <kbd>Ctrl + x</kbd> para salir.
+
+Reinicia el ordenador y comprueba que la unidad se monta automaticamente.
 
 ## Autores ✒️
 
