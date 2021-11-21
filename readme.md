@@ -3,102 +3,84 @@
 Script de bash para montar una unidad al inicio del sistema
 ## Comenzando 🚀
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
+_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local_
 
-Mira **Deployment** para conocer como desplegar el proyecto.
+Descarga el proyecto y guardalo en la carpeta en la que te apatezca.
 
 
 ### Pre-requisitos 📋
 
-_Que cosas necesitas para instalar el software y como instalarlas_
+Este script bash ha sido diseñado para **Pop!_OS 21.04** pero deberia poder
+ejecutarse en cualquier distro linux
+
+
+### Instalación y Configuración 🔧
+
+Una vez descargado el proyecto encontramos la siguiente estructura de carpetas
+```
+.
+├── etc
+│   └── config.cfg
+├── logs
+│   ├── errors.log
+│   └── output.log
+├── src
+│   └── inicioMontarUnidad.sh
+└── readme.md
+```    
+En la carpeta _etc_ dedicada a archivos de configuración encontramos el
+archivo _config.cfg_ en el cual debemos rellenar los campos 
+**DIR_TO_MOUNT_DISK** donde estableceremos la carpeta donde se montará
+la nueva unidad de disco y **DISK_TO_MOUNT** donde establecemos el nombre de 
+la unidad a montar. Aqui podemos ver un ejemplo:
+```
+DIR_TO_MOUNT_DISK="/media/vincitori/Mi_Directorio"
+DISK_TO_MOUNT="/dev/sdb1"
+```
+En la carpeta _logs_ se encuentran 2 ficheros de logs, en _errors.log_ se guardan
+los errores que se hayan podido producir durante la ejecución del script y en 
+_output.log_ se guarda la salida normal del script.
+
+En la carpeta _src_ se encuentra el codigo fuente del script. Debemos 
+asegurarnos de hacer ejecutable el fichero _inicioMontarUnidad.sh_. Para ello
+puedes utilizar el siguiente comando ejecutado en el directorio _src_:
 
 ```
-Da un ejemplo
+sudo chmod +x inicioMontarUnidad.sh
 ```
 
-### Instalación 🔧
 
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose_
 
-_Dí cómo será ese paso_
+## Funcionamiento Manual ⚙️
+
+Si queremos ejecutar este script de forma manual, navegamos a la ruta donde
+hayamos descargado el proyecto y ejecutamos las siguientes instrucciones en una
+terminal.
+
+Navegamos a la carpeta _/src/_
+```
+cd src
+```
+y luego, como usuario **root**, ejecutamos el script. Para ello usamos la 
+siguiente instrucción
 
 ```
-Da un ejemplo
+sudo ./inicioMontarUnidad.sh
 ```
 
-_Y repite_
+## Funcionamiento Automático ⚙️
 
-```
-hasta finalizar
-```
+Si queremos que este script se ejecute al inicio debemos seguir los siguientes
+pasos
 
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
-
-## Ejecutando las pruebas ⚙️
-
-_Explica como ejecutar las pruebas automatizadas para este sistema_
-
-### Analice las pruebas end-to-end 🔩
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-### Y las pruebas de estilo de codificación ⌨️
-
-_Explica que verifican estas pruebas y por qué_
-
-```
-Da un ejemplo
-```
-
-## Despliegue 📦
-
-_Agrega notas adicionales sobre como hacer deploy_
-
-## Construido con 🛠️
-
-_Menciona las herramientas que utilizaste para crear tu proyecto_
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - El framework web usado
-* [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [ROME](https://rometools.github.io/rome/) - Usado para generar RSS
-
-## Contribuyendo 🖇️
-
-Por favor lee el [CONTRIBUTING.md](https://gist.github.com/villanuevand/xxxxxx) para detalles de nuestro código de conducta, y el proceso para enviarnos pull requests.
+_En desarrollo_
 
 ## Wiki 📖
 
 Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](https://github.com/tu/proyecto/wiki)
 
-## Versionado 📌
-
-Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones disponibles, mira los [tags en este repositorio](https://github.com/tu/proyecto/tags).
-
 ## Autores ✒️
 
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
 
-* **Andrés Villanueva** - *Trabajo Inicial* - [villanuevand](https://github.com/villanuevand)
-* **Fulanito Detal** - *Documentación* - [fulanitodetal](#fulanito-de-tal)
+* **Victor Fagúndez Poyo** - *Trabajo Inicial* - [vincitori-dev](https://github.com/vincitori-dev)
 
-También puedes mirar la lista de todos los [contribuyentes](https://github.com/your/project/contributors) quíenes han participado en este proyecto. 
-
-## Licencia 📄
-
-Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
-
-## Expresiones de Gratitud 🎁
-
-* Comenta a otros sobre este proyecto 📢
-* Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
-* Da las gracias públicamente 🤓.
-* etc.
-
-
-
----
-⌨️ con ❤️ por [Villanuevand](https://github.com/Villanuevand) 😊
